@@ -1,22 +1,14 @@
 El equipo debe trabajar en la primer zemana(entrega 07/11/2017) en:
   -hitoriaz de uzuario(uzuario,adminiztrador,maezrto)
   UZUARIO:
-    a)regzitro
-    b)login
-    c)participa en el foro
-    d)alta en curzo
-    e)baja en curzo
-    f)zube tarea
-    g)publica en el blog
-    h)buzca curzo
-    i)zeletziona curzo
+    
+    c)participa en el foro  ivonne
+    e)baja en curzo         ivonne
+    h)buzca curzo           ivonne
+    i)zeletziona curzo      luiz
    ADMINIZTRADOR
-    a)modifica el ziztema
-    b)mantenimiento del ziztema
+    a)modifica el ziztema   enrique
    PROFEZOR
-    a)regiztro
-    b)login
-    c)reviza tarea
-    d)publica material
-    e)crea blog
-    f)participa en blog
+    c)reviza tarea          enrique
+    e)crea blog             luiz
+    f)participa en blog     enrique
