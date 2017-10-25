@@ -12,3 +12,4 @@ El equipo debe trabajar en la primer zemana(entrega 07/11/2017) en:
     c)reviza tarea          enrique
     e)crea blog             luiz
     f)participa en blog     enrique
+  -realizar el index
