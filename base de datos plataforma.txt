@@ -1,0 +1,27 @@
+create database plataforma;
+
+use plataforma;
+
+
+CREATE TABLE estudiante(
+  id_estudiante INT NOT NULL AUTO_INCREMENT ,
+  usuario VARCHAR(100),
+  pass VARCHAR(100),
+  nombre VARCHAR(64),
+  carrera VARCHAR(128),
+  escuela VARCHAR(128),
+  direccion VARCHAR(500),  
+PRIMARY KEY(id_estudiante)
+)AUTO_INCREMENT=201700001;
+
+
+
+CREATE TABLE profesor(
+  id_profesor INT NOT NULL AUTO_INCREMENT ,
+  usuario VARCHAR(100),
+  pass VARCHAR(100),
+  nombre VARCHAR(64),
+  escuela VARCHAR(128),
+  correo VARCHAR(500),  
+PRIMARY KEY(id_profesor)
+)AUTO_INCREMENT=1;
