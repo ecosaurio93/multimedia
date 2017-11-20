@@ -2,16 +2,24 @@
 <html lang="en">
 
   <head>
-  	 <style>
+    <style>
        #map {
         height: 200px;
         width: 200px;
        }
-    </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    </style>	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+		<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+
+	
 
     <title>Plataforma de educación</title>
 
@@ -34,7 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">REGISTRO DE PROFESOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">REGISTRO DE ALUMNO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -66,104 +74,39 @@
     </nav>
 <!-- FORMULARIO -->
 <br></br>
-<center>
+
 <div>
-<br></br>
-<br></br>
-<br></br>
+<div align="center">
+  <?php  
 
-<?php  
-
-
-function formulario(){
-
-//formulario de registro de usuario
-echo ('<form id="contact-form" method="post" action="alta_profe2.php" role="form">
-
-    <div class="col-md-6">
-                <div class="form-group">
-                    <label for="usuario">USUARIO *</label>
-                    <input id="usuario" type="text" name="usuario" class="form-control" placeholder="nombre de usuario *" required="required" data-error="Nombre de usuario requerido">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-
-   <div class="col-md-6">
-                <div class="form-group">
-                    <label for="pass">CONTRASEÑA *</label>
-                    <input id="pass" type="password" name="pass" class="form-control" placeholder="introduzca su contraseña*" required="required" data-error="la contraseña es requerida">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-  <div class="col-md-6">
-                <div class="form-group">
-                    <label for="pass2">REPITA CONTRASEÑA *</label>
-                    <input id="pass2" type="password" name="pass2" class="form-control" placeholder="repita su contraseña*" required="required" data-error="la contraseña es requerida">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>   
-<div class="alert alert-danger" role="alert">
-  Su Contraseña no concuerda favor de intentarlo nuevamente.
-</div>
-
-   <div class="col-md-6">
-                <div class="form-group">
-                    <label for="nombre">NOMBRE DEL PROFESOR*</label>
-                    <input id="nombre" type="text" name="nombre" class="form-control" placeholder="introduzca su nombre*" required="required" data-error="Su nombre es requerido">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-   <div class="col-md-6">
-                <div class="form-group">
-                    <label for="escuela">ESCUELA</label>
-                    <input id="escuela" type="text" name="escuela" class="form-control">
-                    
-                </div>
-            </div>
-
-
-
-
-
-   <div class="col-md-6">
-                <div class="form-group">
-                    <label for="correo">CORREO ELECTRONICO  *</label>
-                    <input id="correo" type="email" name="correo" class="form-control" placeholder="introduzca su correo" required="required" data-error="Su correo es requerido">
-                  <span id="error" class="help-block"></span></div> 
-                </div>
-            </div>
-
-<br>
-
-  <button type="submit" class="btn btn-primary">Registrar</button>
-</form>');
-
-}
-
-
-
-formulario();
-
-
-
+echo('
+<body background="/img/bg.jpg">
+<section class="container">
+			<section class="login-form">
+				<form method="post" action="login2.php" role="login">
+					<img src="img/MULE.png" class="img-responsive" alt="" />
+					<input type="text" name="usuario" placeholder="Nombre de usuario o Correo" required class="form-control input-lg" />
+					<input type="password" name="password" placeholder="Contraseña" required class="form-control input-lg" />
+					<button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Entrar</button>
+					<div>
+					 <a href="rec_pass.php">Recuperar Contraseña</a>
+					</div>
+				</form>
+				<div class="form-links">
+			
+				</div>
+			</section>
+	</section>
+</body>');
 
 ?>
 
+
 </div>
-</center>
+</div>
 <br></br>
     <!-- Footer -->
-    <footer class="text-center">
+   <footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -238,14 +181,7 @@ formulario();
       </div>
     </footer>
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top d-lg-none">
-      <a class="btn btn-primary js-scroll-trigger" href="#page-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-    </div>
-
-   
+    
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -260,12 +196,10 @@ formulario();
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
-
-     <!-- Google api -->
-     <script async defer
+    <!--Google api-->
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtIgeguwfd5ARvs1QDdaVEK5iLmjhkndw&callback=initMap">//dirección del mapa antes del &
     </script>
-
   </body>
 
 </html>

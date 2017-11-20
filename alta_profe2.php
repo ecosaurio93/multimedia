@@ -11,8 +11,7 @@
  
 
 
-<?php
-
+<?php session_start(); 
 
 
 $link=mysqli_connect("localhost","root","");
@@ -39,13 +38,11 @@ $esc= $_REQUEST["escuela"];
 
 
 
+
+
 $result=mysqli_query($link,"select usuario from profesor where usuario='$user'");
 
-if($pa!=$pa2){
-   header("Location:error_pass_profe.php"); 
 
-
-}
     // Hay campos en blanco
 //alter table estudiantes drop promedio;
 if($row=mysqli_fetch_array($result) ){
@@ -56,23 +53,28 @@ echo'el usuario '. $user.' ya existe elija otro nombre de usuario<br><br>';
 
 } 
 
+if(strcmp($pa, $pa2) !== 0){
+
+   header("Location:error_pass_profe.php"); 
+   
+}
  else {
    $query = "insert into profesor (usuario,pass,nombre,escuela,correo)
     values('$user','$pa','$nom','$esc','$mail')";
-
+ $_SESSION["user"] = $user;      
 
     mysqli_query($link,$query);
-    
 
- 
-    echo 'El profesor '.$nom.' ha sido registrado de manera satisfactoria.<br />';
+header("Location:index_profe.php");  
+//  
+  
     echo '<br />';   
-    echo '<p><a href="alta_profe.php">Volver</a></p>';
-        
+ 
 
  }
 
-
+   
+   //     
 
     // Hay campos en blanco
 

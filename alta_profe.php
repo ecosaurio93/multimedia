@@ -44,13 +44,19 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="alta_alumno.php">Registro Alumno</a>
-            </li>
-			
-			 <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="alta_profe.php">Registro Profesor</a>
-            </li>
+		
+
+		  <li class="nav-item dropdown">
+    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registro</a>
+    		<div class="dropdown-menu">
+   		   <a class="dropdown-item" href="alta_alumno.php">Registro de Alumno</a>
+      		<div class="dropdown-divider"></div>
+     		 <a class="dropdown-item" href="alta_profe.php">Registro de Profesor</a>
+    			</div>
+ 		 </li>			
+          
+
+
              <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
             </li>
@@ -66,6 +72,11 @@
 <br></br>
 <br></br>
 <br></br>
+
+<center>
+
+<div>
+
 <?php  
 
 
@@ -125,9 +136,9 @@ echo ('<form id="contact-form" method="post" action="alta_profe2.php" role="form
 
    <div class="col-md-6">
                 <div class="form-group">
-                    <label for="correo">CORREO ELECTRONICO INSTITUCIONAL *</label>
-                    <input id="correo" type="text" name="correo" class="form-control" placeholder="introduzca su correo" required="required" data-error="Su correo es requerido">
-                    <div class="help-block with-errors"></div>
+                    <label for="correo">CORREO ELECTRONICO  *</label>
+                    <input id="correo" type="email" name="correo" class="form-control" placeholder="introduzca su correo" required="required" data-error="Su correo es requerido">
+                  <span id="error" class="help-block"></span></div> 
                 </div>
             </div>
 
@@ -146,7 +157,8 @@ formulario();
 
 
 ?>
-
+</div>
+</center>
 </div>
 <br></br>
      <!-- Footer -->

@@ -29,6 +29,15 @@
   </head>
 
   <body id="page-top">
+      <?php
+session_start(); 
+
+if(!isset($_SESSION['user'])) header("Location:index.html");
+
+  ?> 
+
+
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -41,25 +50,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html">Inicio</a>
+              <a class="nav-link js-scroll-trigger" href="index_profe.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
+              <a class="nav-link js-scroll-trigger" href="cursos.php">Curso</a>
             </li>
-
-
-		  <li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registro</a>
-    		<div class="dropdown-menu">
-   		   <a class="dropdown-item" href="alta_alumno.php">Registro de Alumno</a>
-      		<div class="dropdown-divider"></div>
-     		 <a class="dropdown-item" href="alta_profe.php">Registro de Profesor</a>
-    			</div>
- 		 </li>			
-
-
+			
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
+              <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
             </li>
 
 			
@@ -73,103 +71,14 @@
       <div class="container">
         <img class="img-circle" src="img/profile.png" alt="" >
         <div class="intro-text">
-          <span class="name">Empieza hoy mismo</span>
+          <span class="name">Bienvenido Profesor</span>
           <hr class="star-light">
           <span class="skills">Educación a distancia - Recursos graficos - Herramientas multimedia</span>
         </div>
       </div>
     </header>
 	
-    <section id="portfolio">
-      <div class="container">
-        <h2 class="text-center">cursos</h2>
 
-        <hr class="star-primary">
-        <div class="row">
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/jquery.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/ajax.png" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/html5.png" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/css3.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal5" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/ps.png" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/maya.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="success" id="about">
-      <div class="container">
-        <h2 class="text-center">nosotros</h2>
-        <hr class="star-light">
-        <div class="row">
-          <div class="col-lg-4 ml-auto">
-            <p>MISIÓN<br>
-			Desarrollar e impulsar la innovación educativa en la modalidad a distancia, aprovechando los beneficios de las tecnologías digitales		 para ofrecer programas educativos pertinentes y de calidad que respondan a las necesidades y prioridades de los profesores y alumnos. Propiciar la formación de profesores en el ambito tecnológico para atender las particularidades de la educación a distancia en beneficio de los estudiantes de r y de la sociedad en general.</p>
-          </div>
-          <div class="col-lg-4 ml-auto">
-            <p>VISIÓN<div>Consolidarse  como el espacio para desarrollo, implementación e innovación educativa en las modalidad de educación a distancia y como el referente de otras instituciones y plataformas  en el ámbito de la educación a distancia. Contribuir a mejorar la calidad de los alumnos y profesores</p>
-          </div>
-         
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
    
     <!-- Footer -->
     <footer class="text-center">

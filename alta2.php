@@ -11,7 +11,7 @@
  
 
 
-<?php
+<?php session_start(); 
 
 
 
@@ -38,12 +38,6 @@ $nom = $_REQUEST["nombre"];
 $car = $_REQUEST["carrera"];
 $esc= $_REQUEST["escuela"];
 
-if($pa!=$pa2){
-
-   header("Location:error_pass.php"); 
-
-
-}
 
 $result=mysqli_query($link,"select usuario from estudiante where usuario='$user'");
 
@@ -58,19 +52,25 @@ echo'el usuario '. $user.' ya existe elija otro nombre de usuario<br><br>';
 
 } 
 
+if(strcmp($pa, $pa2) !== 0){
+
+   header("Location:error_pass.php"); 
+   
+}
+
+
  else {
    $query = "insert into estudiante (usuario,pass,nombre,carrera,escuela,correo)
     values('$user','$pa','$nom','$car','$esc','$mail')";
 
-
+$_SESSION["user"] = $user;      
+  header("Location:alumno.php");  
+        
     mysqli_query($link,$query);
     
 
  
-    echo 'El alumno '.$nom.' ha sido registrado de manera satisfactoria.<br />';
-    echo '<br />';   
-    echo '<p><a href="alta_alumno.php">Volver</a></p>';
-        
+  
 
  }
 

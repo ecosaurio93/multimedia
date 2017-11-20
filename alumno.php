@@ -35,6 +35,13 @@
 
   <body id="page-top">
 
+  <?php
+session_start(); 
+
+if(!isset($_SESSION['user'])) header("Location:index.html");
+
+  ?>  
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -53,18 +60,29 @@
            <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#">Cursos</a>
           </li>
-              <li class="dropdown">
-              <a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Menú<b class="caret"></b></a>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link js-scroll-trigger" href="#">Entregar Tareas</li>
-                <li><a class="nav-link js-scroll-trigger" href="#">Lecturas</li>
-                <li><a class="nav-link js-scroll-trigger" href="#">Multimedia</li>
-                <li><a class="nav-link js-scroll-trigger" href="#">Blog</li>
-                <li><a class="nav-link js-scroll-trigger" href="#">Foro</li>   
-                <li><a class="nav-link js-scroll-trigger" href="#">Salir</li> 
+                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
+      						<div class="dropdown-divider"></div>
+							 <a class="dropdown-item" href="#">Lecturas </a>
+      						<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Multimedia </a>
+      						<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Blog </a>
+      						<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Foro </a>
+      						<div class="dropdown-divider"></div>
+						
+					
             </li>
           </ul>
              
+		<li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
+          </li>
+			 
+			 
         </div>
       </div>
     </nav>

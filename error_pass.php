@@ -31,9 +31,9 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-      	 <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
+         <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
         <a class="navbar-brand js-scroll-trigger" href="#page-top">REGISTRO DE ALUMNO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -44,17 +44,22 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="alta_alumno.php">Registro Alumno</a>
-            </li>
-			
-			 <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="alta_profesor.php">Registro Profesor</a>
-            </li>
+           
+           
+		  <li class="nav-item dropdown">
+    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registro</a>
+    		<div class="dropdown-menu">
+   		   <a class="dropdown-item" href="alta_alumno.php">Registro de Alumno</a>
+      		<div class="dropdown-divider"></div>
+     		 <a class="dropdown-item" href="alta_profe.php">Registro de Profesor</a>
+    			</div>
+ 		 </li>			
 
-             <li class="nav-item">
+
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
             </li>
+
           </ul>
         </div>
       </div>
@@ -66,7 +71,7 @@
 <br></br>
 <br></br>
 <br></br>
-
+<center>
 <?php  
 
 
@@ -138,9 +143,9 @@ echo ('<form id="contact-form" method="post" action="alta2.php" role="form">
 
    <div class="col-md-6">
                 <div class="form-group">
-                    <label for="correo">CORREO ELECTRONICO *</label>
-                    <input id="correo" type="text" name="correo" class="form-control" placeholder="introduzca su correo" required="required" data-error="Su correo es requerido">
-                    <div class="help-block with-errors"></div>
+                    <label for="correo">CORREO ELECTRONICO  *</label>
+                    <input id="correo" type="email" name="correo" class="form-control" placeholder="introduzca su correo" required="required" data-error="Su correo es requerido">
+                  <span id="error" class="help-block"></span></div> 
                 </div>
             </div>
 
@@ -161,6 +166,7 @@ formulario();
 ?>
 
 </div>
+</center>
 <br></br>
     <!-- Footer -->
     <footer class="text-center">
