@@ -40,32 +40,50 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
+         <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">PROFESOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index_profe.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="cursos.php">Curso</a>
-            </li>
-			
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
-            </li>
 
-			
+             <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_profe.php">Inicio</a>
+          </li>
+             <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="cursos_profe.php">Cursos</a>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+              <ul class="dropdown-menu">
+              <a class="dropdown-item" href="#">Revisar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="crear_curso.php">Crear Curso </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="blog.php">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
+            
+          
+            </li>
           </ul>
+             
+    <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
+          </li>
+       
+       
         </div>
       </div>
     </nav>
 
+<br></br>
+</br>
     <!-- Header -->
     <header class="masthead">
       <div class="container">

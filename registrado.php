@@ -55,7 +55,7 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
           <ul class="navbar-nav ml-auto">
 
              <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Inicio</a>
+            <a class="nav-link js-scroll-trigger" href="alumno.php">Inicio</a>
           </li>
            <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
@@ -63,26 +63,26 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
-                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
-      						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Blog </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
-      						<div class="dropdown-divider"></div>
-						
-					
+                         <a class="dropdown-item" href="#">Entregar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Lecturas </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Multimedia </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
+            
+          
             </li>
           </ul>
              
-		<li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
-			 
-			 
+       
+       
         </div>
       </div>
     </nav>
@@ -114,8 +114,11 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
 <br></br>
 
   <!-- Busca curso -->
-
-
+<center>
+<div class="alert alert-success" role="alert">
+  <h4>Registro a curso exitoso</h4>
+</div>
+</center>
 <div class="container">
   <h1 class="text-center">Busca Curso</h1>
   
@@ -166,7 +169,7 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
         });
       }
     </script>
-	</center>
+  </center>
             </div>
             <div class="footer-col col-md-4">
               <h3>Acerca de la Web</h3>

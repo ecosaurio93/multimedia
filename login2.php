@@ -18,8 +18,9 @@ usuario='$usuario' or correo='$usuario'");
 
        if($row["pass"] == $password)
            {
-            $_SESSION["user"] = $row['usuario'];           
-         
+            $_SESSION["user"] = $row['usuario'];  
+            $_SESSION["id"] = $row['id_estudiante'];         
+            $_SESSION["name"] = $row['nombre'];  
          header("Location:alumno.php"); 
              // Para redireccionar automaticamente a una pagina: usar cualqueira de las dos opciones:  
             //echo '<SCRIPT LANGUAGE="javascript">  location.href = "index.php";    </SCRIPT>';
@@ -49,9 +50,10 @@ usuario='$usuario' or correo='$usuario'");
 
        if($row["pass"] == $password)
            {
-            $_SESSION["user"] = $row['usuario'];           
-
-            header("Location:index_profe.html"); 
+            $_SESSION["user"] = $row['usuario'];
+            $_SESSION["id"] = $row['id_profesor'];             
+            $_SESSION["name"] = $row['nombre']; 
+            header("Location:index_profe.php"); 
              // Para redireccionar automaticamente a una pagina: usar cualqueira de las dos opciones:  
             //echo '<SCRIPT LANGUAGE="javascript">  location.href = "index.php";    </SCRIPT>';
             //header("Location: index.php");

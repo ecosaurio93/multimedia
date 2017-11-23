@@ -35,12 +35,7 @@
 
   <body id="page-top">
 
-  <?php
-session_start(); 
-
-if(!isset($_SESSION['user'])) header("Location:index.html");
-
-  ?>  
+ 
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -58,91 +53,126 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
             <a class="nav-link js-scroll-trigger" href="#">Inicio</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
+            <a class="nav-link js-scroll-trigger" href="#">Cursos</a>
           </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
-                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
-      						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Blog </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
-      						<div class="dropdown-divider"></div>
-						
-					
+                         <a class="dropdown-item" href="#">Entregar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Lecturas </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Multimedia </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
+            
+          
             </li>
           </ul>
              
-		<li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
-			 
-			 
+       
+       
         </div>
       </div>
     </nav>
 
 <br></br>
 </br>
-
- 
- <!-- Menú curso -->
- <section id="contact">
- <div class="container">
-                        
-  <div class="dropdown">
-    <a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Mis cursos<b class="caret"></b>
-  </a>
-    <ul class="dropdown-menu">
-      <li><a class="nav-link js-scroll-trigger" href="#">HTML</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">CSS</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">JavaScript</a></li>
-    </ul>
-  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<header >
+<center> 
+<div>       
+ <h2>RESULTADO DE BUSQUEDA</h2>   
 </div>
-               
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-
-  <!-- Busca curso -->
+</center> 
+<?php session_start(); 
+if(!isset($_SESSION['user'])) header("Location:index.html");
 
 
-<div class="container">
-  <h1 class="text-center">Busca Curso</h1>
+
+$link=mysqli_connect("localhost","root","");
+mysqli_select_db($link,"plataforma"); 
+
+$busca=$_REQUEST['buscar']; 
+
+$usuario=$_SESSION['user'];
+
+//echo "$busca";
+
+$result2 = mysqli_query($link,"select  * from curso_profe");
+$i=1;
+
+echo '<table class="table table-dark">
   
-  <form action="buscar.php">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="buscar">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">Buscar</button>
-      </div>
-    </div>
-  </form>
+    <tr>
+    <td scope="col">N°</td>
+      <td scope="col">Id Curso</td>
+      <td scope="col">Nombre de Curso</td>
+      <td scope="col">Descripcion</td>
+      <td scope="col">Profesor</td>
+      <td scope="col">Registro</td>
+    </tr>';
+//$row2=mysqli_fetch_array($result2);
+ while($row2 = mysqli_fetch_array($result2)) 
+  { 
+    $cadena=$row2['nombre_curso']; 
+    
+  $pos = strripos($cadena, $busca);
+
+
+ if($pos !== false){
+  $id_prof=$row2['id_profesor'];
+  $result=mysqli_query($link,"select  * from profesor where id_profesor='$id_prof' ");
+  $row = mysqli_fetch_array($result);
+     
+   $row = mysqli_fetch_array($result);
+   
+   
+  $id_c=$row2['id_curso'];
+  $nom=$row2['nombre_curso'];
+  $desc=$row2['descripcion'];
+  $profe=$row2['nombre_profe'];
+ echo "<br>";
+  echo "<br>";
+   echo "<br>";
+
+echo " <tr><td>$i</td><td>$id_c</td> <td>$nom</td> <td>$desc</td> <td>$profe</td>
+<td><a href='registro.php?dato=$id_c'>Registrar</a></td></tr>";
+
+$i=$i+1;
+
+   }
+
+  
+
+ }
+
+echo "</table>"
+
+
+?>
+<center>
+<a href="alumno.php" class="btn btn-dark" role="button" aria-pressed="true">Regresar</a>
+</center>
 </div>
-</section>     
-        
+</header>
+<br>
+<br>
+<br>
+<br>
+<br><br>
 
-
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-    <!-- Footer -->
-   <footer class="text-center">
+<footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -166,7 +196,7 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
         });
       }
     </script>
-	</center>
+  </center>
             </div>
             <div class="footer-col col-md-4">
               <h3>Acerca de la Web</h3>

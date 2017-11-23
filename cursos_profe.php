@@ -35,18 +35,13 @@
 
   <body id="page-top">
 
-  <?php
-session_start(); 
-
-if(!isset($_SESSION['user'])) header("Location:index.html");
-
-  ?>  
+ 
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ALUMNO</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">PROFESOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -55,94 +50,134 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
           <ul class="navbar-nav ml-auto">
 
              <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Inicio</a>
+            <a class="nav-link js-scroll-trigger" href="index_profe.php">Inicio</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
+            <a class="nav-link js-scroll-trigger" href="cursos_profe.php">Cursos</a>
           </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
-                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
-      						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Blog </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
-      						<div class="dropdown-divider"></div>
-						
-					
+                         <a class="dropdown-item" href="#">Entregar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Lecturas </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Multimedia </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="blog.php">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
+            
+          
             </li>
           </ul>
              
-		<li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
-			 
-			 
+       
+       
         </div>
       </div>
     </nav>
 
 <br></br>
 </br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<header >
+<center> 
+<div>       
+ <h2>MIS CURSOS</h2>   
+</div>
+</center> 
+<?php session_start(); 
+if(!isset($_SESSION['user'])) header("Location:index.html");
+
+
+
+$link=mysqli_connect("localhost","root","");
+mysqli_select_db($link,"plataforma"); 
+
+
+$usuario=$_SESSION['user'];
+$id_profe=$_SESSION['id'];
+$nombre=$_SESSION['name'];
+//echo "$busca";
+
+
+$i=1;
+ 
+  $result=mysqli_query($link,"select  * from curso_profe where id_profesor=$id_profe");
+  $row = mysqli_fetch_array($result);
+
+//$row2=mysqli_fetch_array($result2);
+ if($row=mysqli_fetch_array($result)){
+
+ echo "<br>";
+  echo "<br>";
+  echo "<br>";
+echo '<table class="table table-hover table-dark">
+   <thead>
+    <tr>
+    <td scope="col">N°</td>
+      <td scope="col">Id Curso</td>
+      <td scope="col">Nombre de Curso</td>
+      <td scope="col">Alumnos inscritos </td>
+      <td scope="col">Opcion</td>
+    </tr>
+     </thead>'; 
+
+ while($row = mysqli_fetch_array($result)) 
+  { 
+  
+  $nom_profe= $row['nombre_profe'];
+  $curso= $row['nombre_curso'];
+  $id_c= $row ['id_curso'];
+$result2=mysqli_query($link,"select  * from curso where id_curso=$id_c");
+$numero = mysqli_num_rows($result2);
+
+
+echo " <tr><td>$i</td><td>$id_c</td> <td>$curso</td> <td>$numero</td>
+<td><a href='ver_curso.php?dato=$id_c'>Ver Curso</a></td></tr>";
+
+$i=$i+1;
+
+   }
+
+  }
+
+else{
+ echo "<br>";
+  echo "<br>";
+  echo "<br>";
+  echo'<center><h4>No cuentas con un curso activo</h4><center>' ;
+}
+
+
 
  
- <!-- Menú curso -->
- <section id="contact">
- <div class="container">
-                        
-  <div class="dropdown">
-    <a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Mis cursos<b class="caret"></b>
-  </a>
-    <ul class="dropdown-menu">
-      <li><a class="nav-link js-scroll-trigger" href="#">HTML</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">CSS</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">JavaScript</a></li>
-    </ul>
-  </div>
+
+echo "</table>"
+
+
+?>
+<center>
+<a href="alumno.php" class="btn btn-dark" role="button" aria-pressed="true">Regresar</a>
+</center>
 </div>
-               
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br><br>
 
-  <!-- Busca curso -->
-
-
-<div class="container">
-  <h1 class="text-center">Busca Curso</h1>
-  
-  <form action="buscar.php">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="buscar">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">Buscar</button>
-      </div>
-    </div>
-  </form>
-</div>
-</section>     
-        
-
-
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-    <!-- Footer -->
-   <footer class="text-center">
+<footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -166,7 +201,7 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
         });
       }
     </script>
-	</center>
+  </center>
             </div>
             <div class="footer-col col-md-4">
               <h3>Acerca de la Web</h3>

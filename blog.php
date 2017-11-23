@@ -35,54 +35,34 @@
 
   <body id="page-top">
 
-  <?php
-session_start(); 
-
-if(!isset($_SESSION['user'])) header("Location:index.html");
-
-  ?>  
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ALUMNO</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Blog</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
+            Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
 
-             <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Inicio</a>
+               <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="blog.php">Inicio</a>
           </li>
+
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
+            <a class="nav-link js-scroll-trigger" href="#">Crear blog</a>
           </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
-              <ul class="dropdown-menu">
-                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
-      						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Blog </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
-      						<div class="dropdown-divider"></div>
-						
-					
-            </li>
+
+           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#">Salir</a>
+          </li>
+
+           
+            
           </ul>
              
-		<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
-          </li>
-			 
-			 
         </div>
       </div>
     </nav>
@@ -90,52 +70,105 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
 <br></br>
 </br>
 
- 
- <!-- Menú curso -->
- <section id="contact">
- <div class="container">
-                        
-  <div class="dropdown">
-    <a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Mis cursos<b class="caret"></b>
-  </a>
-    <ul class="dropdown-menu">
-      <li><a class="nav-link js-scroll-trigger" href="#">HTML</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">CSS</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">JavaScript</a></li>
-    </ul>
-  </div>
-</div>
+
                
 <br></br>
 <br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
 
-  <!-- Busca curso -->
-
-
-<div class="container">
-  <h1 class="text-center">Busca Curso</h1>
-  
-  <form action="buscar.php">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="buscar">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">Buscar</button>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>MulE</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Inicio </a></li>&nbsp
+        <li><a href="#section2">  Amigos </a></li>&nbsp
+        <li><a href="#section3"> Archivo</a></li>&nbsp
+      
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Busca un blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
       </div>
     </div>
-  </form>
+
+    <div class="col-sm-9">
+      <h4><small>POST RECIENTE</small></h4>
+      <hr>
+      <h2>Curso JavaScript Básico </h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Josué, Sep 27, 2015.</h5>
+      <h5><span class="label label-danger">Programación</span> <span class="label label-primary"></span></h5><br>
+      <p>Curso de JavaScript básico ofrecido por El Profe. Aprende todo lo que necesitas para crear tus propios programas con JavaScript.
+       <li> Módulo 1 Empezamos con JavaScript</li>
+        <li>Lección 1 Introducción en JavaScript</li>
+       <li> Lección 2 La declaración y los comentarios</li>
+        <li>Lección 3 Variables</li>
+</p>
+      <br><br>
+      
+      <h4><small>POST RECIENTE</small></h4>
+      <hr>
+      <h2>5 Libros para aprender a programar en Android</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+      <h5><span class="label label-success">Programación</span></h5><br>
+      <p> Contenido
+
+    Sobre la guía
+    Sobre el autor
+    Construir un lector de feeds simple
+    Aumentar la funcionalidad de un lector de feeds
+    Trabajando con imágenes (cámara y galería)
+    Grabación y reproducción de vídeo</p>
+      <hr>
+
+      <h4>Deja un comentario: </h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </form>
+      <br><br>
+      
+      <p><span class="badge">2</span> Comentarios:</p><br>
+      
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Carlos <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p>Gran trabajo!!!.</p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Juan<small>Sep 25, 2015, 8:25 PM</small></h4>
+          <p>Podrías explicarlo un poco mejor</p>
+          <br>
+          <p><span class="badge">1</span> Comentario:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+              <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Erik <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>De gran ayuda!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</section>     
-        
+ 
 
-
-
-<br></br>
-<br></br>
-<br></br>
 <br></br>
 <br></br>
 <br></br>

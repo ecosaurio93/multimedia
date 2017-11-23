@@ -2,13 +2,12 @@
 <html lang="en">
 
   <head>
-    <style>
+     <style>
        #map {
         height: 200px;
         width: 200px;
        }
     </style>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -19,14 +18,10 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
@@ -34,19 +29,20 @@
   </head>
 
   <body id="page-top">
-
-  <?php
-session_start(); 
+      <?php session_start(); 
 
 if(!isset($_SESSION['user'])) header("Location:index.html");
 
-  ?>  
+  ?> 
+
+
+
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ALUMNO</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">PROFESOR</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -55,94 +51,109 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
           <ul class="navbar-nav ml-auto">
 
              <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Inicio</a>
+            <a class="nav-link js-scroll-trigger" href="index_profe.php">Inicio</a>
           </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
-          </li>
+             <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="#">Cursos</a>
+              </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
-                   		   <a class="dropdown-item" href="#">Entregar Tarea</a>
-      						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Blog </a>
-      						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
-      						<div class="dropdown-divider"></div>
-						
-					
+              <a class="dropdown-item" href="#">Revisar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Crear Curso </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
+            
+          
             </li>
           </ul>
              
-		<li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
-			 
-			 
+       
+       
         </div>
       </div>
     </nav>
 
 <br></br>
 </br>
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+           
+          <span class="skills">CREAR CURSO</span>     
+
+          <hr class="star-light">
+        </div>
+  
+     <center>    
+    <div> 
+        <?php  
+
+
+function formulario(){
+
+//formulario de registro de usuario
+echo ('<form id="contact-form" method="post" action="crear_curso2.php" role="form">
+
+    <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre">NOMBRE DEL CURSO *</label>
+                    <input id="nombre" type="text" name="nombre" class="form-control" placeholder="nombre del curso" required="required" data-error="Nombre de usuario requerido">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
 
  
- <!-- Menú curso -->
- <section id="contact">
- <div class="container">
-                        
-  <div class="dropdown">
-    <a   class="dropdown-toggle"  data-toggle="dropdown" href="#">Mis cursos<b class="caret"></b>
-  </a>
-    <ul class="dropdown-menu">
-      <li><a class="nav-link js-scroll-trigger" href="#">HTML</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">CSS</a></li>
-      <li><a class="nav-link js-scroll-trigger" href="#">JavaScript</a></li>
-    </ul>
-  </div>
-</div>
-               
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
 
-  <!-- Busca curso -->
+   <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">DESCRICION </label>
+                    <input id="descripcion" type="text" name="descripcion" class="form-control" placeholder="introduzca una descricion del curso" required="required" data-error="Su nombre es requerido">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
 
 
-<div class="container">
-  <h1 class="text-center">Busca Curso</h1>
-  
-  <form action="buscar.php">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="buscar">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">Buscar</button>
-      </div>
+
+
+
+     
+
+<br>
+
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>');
+
+}
+
+
+
+formulario();
+
+
+
+
+?>
     </div>
-  </form>
-</div>
-</section>     
-        
+    </header>
+          </div>
+        </center>
+        </div>
+      </div>
+    </header>
+	
 
-
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+   
     <!-- Footer -->
-   <footer class="text-center">
+    <footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -217,7 +228,14 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
       </div>
     </footer>
 
-    
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top d-lg-none">
+      <a class="btn btn-primary js-scroll-trigger" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+   
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -232,8 +250,8 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
-    <!--Google api-->
-    <script async defer
+     <!-- Google api -->
+     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtIgeguwfd5ARvs1QDdaVEK5iLmjhkndw&callback=initMap">//dirección del mapa antes del &
     </script>
   </body>
