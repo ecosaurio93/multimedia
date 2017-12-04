@@ -55,14 +55,16 @@
            <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="cursos_profe.php">Cursos</a>
           </li>
+
+
+
+          
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
                          <a class="dropdown-item" href="#">Entregar Tarea</a>
                   <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="#">Lecturas </a>
-                  <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Multimedia </a>
+               <a class="dropdown-item" href="crear_curso.php">Crear curso </a>
                   <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="blog.php">Blog </a>
                   <div class="dropdown-divider"></div>
@@ -111,16 +113,16 @@ $nombre=$_SESSION['name'];
 
 
 $i=1;
- 
+
   $result=mysqli_query($link,"select  * from curso_profe where id_profesor=$id_profe");
   $row = mysqli_fetch_array($result);
 
 //$row2=mysqli_fetch_array($result2);
  if($row=mysqli_fetch_array($result)){
 
- echo "<br>";
-  echo "<br>";
-  echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 echo '<table class="table table-hover table-dark">
    <thead>
     <tr>
@@ -143,7 +145,10 @@ $numero = mysqli_num_rows($result2);
 
 
 echo " <tr><td>$i</td><td>$id_c</td> <td>$curso</td> <td>$numero</td>
-<td><a href='ver_curso.php?dato=$id_c'>Ver Curso</a></td></tr>";
+<td><a href='contenido.php?dato=$id_c'>Editar</a>
+<br>
+<a href='tabla_contenido.php?dato=$id_c'>Ver Curso</a>
+</td></tr>";
 
 $i=$i+1;
 
@@ -167,7 +172,7 @@ echo "</table>"
 
 ?>
 <center>
-<a href="alumno.php" class="btn btn-dark" role="button" aria-pressed="true">Regresar</a>
+<a href="index_profe.php" class="btn btn-dark" role="button" aria-pressed="true">Regresar</a>
 </center>
 </div>
 </header>

@@ -35,167 +35,141 @@
 
   <body id="page-top">
 
+ 
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ADMINISTRADOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">ALUMNO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
+          Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
 
-               <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="admin.php">Inicio</a>
+             <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="alumno.php">Inicio</a>
           </li>
-
- <li class="nav-item dropdown">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Administracion<span class="caret"></a span>
-         
-          <ul class="dropdown-menu ">
-                 <a class="dropdown-item" href="curso.php">Curso</a>
-                  <div class="dropdown-divider"></div>
-           </ul>
-        </li>  
-
-
-             
-              <li class="nav-item dropdown">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></a span>
-          <ul class="dropdown-menu">
-         <a class="dropdown-item" href="foro.php">Foro</a>
-                  <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="alum.php">Alumnos</a>
-                  <div class="dropdown-divider"></div>
-
-        <a class="dropdown-item" href="profe.php">Profesores</a>
-                  <div class="dropdown-divider"></div>
-
-      
-           </ul>
-        </li>  
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
+            <a class="nav-link js-scroll-trigger" href="cursos_alumno.php">Cursos</a>
           </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+              <ul class="dropdown-menu">
+                         <a class="dropdown-item" href="#">Entregar Tarea</a>
+                  <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="calificaciones_alumno.php">Calificaciones </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Multimedia </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Blog </a>
+                  <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Foro </a>
+                  <div class="dropdown-divider"></div>
             
+          
+            </li>
           </ul>
              
+    <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
+          </li>
+       
+       
         </div>
       </div>
     </nav>
 
 <br></br>
 </br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<header >
+<center> 
+<div>       
+ <h2>MIS CURSOS</h2>   
+</div>
+</center> 
+<center>
+<div class="alert alert-success" role="alert">
+  <h4>Tu tarea se ha enviado</h4>
+</div>
+</center>
 
+<?php session_start(); 
+if(!isset($_SESSION['user'])) header("Location:index.html");
 
-               
-<br></br>
-<br></br>
-
-   <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-             
-              <li><h4>Lista de Cursos<h4></li>
-          </ul>
-          </div>
-        </div>
-      </div>
-
-
-<?php 
 
 
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"plataforma"); 
 
 
+$usuario=$_SESSION['user'];
+$id_estudiante=$_SESSION['id'];
+
 //echo "$busca";
 
-
+$result2 = mysqli_query($link,"select  * from curso_profe");
 $i=1;
-
-
-//$row2=mysqli_fetch_array($result2);
-
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
+  echo "<br>";
+  echo "<br>";
+  echo "<br>";
 echo '<table class="table table-hover table-dark">
    <thead>
     <tr>
-    <td scope="col">#</td>
-      <td scope="col">Nombre del Curso</td>
+    <td scope="col">N°</td>
+      <td scope="col">Id Curso</td>
+      <td scope="col">Nombre de Curso</td>
       <td scope="col">Profesor</td>
-       <td scope="col">eliminar</td>
-
+      <td scope="col">Opcion</td>
     </tr>
      </thead>'; 
-
-
-
-  $result=mysqli_query($link,"select  * from curso_profe");
+    $result=mysqli_query($link,"select  * from curso where id_estudiante='$id_estudiante' ");
   $row = mysqli_fetch_array($result);
-
-  $id_c=$row["id_curso"];
-  $nom_curso= $row["nombre_curso"];
- $profesor= $row["nombre_profe"];
-
-echo " <tr><td>$i</td><td>$nom_curso</td> <td>$profesor</td>";
- echo"<td><a href='elimina_curso.php?dato=$id_c' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
-
+     $i=1;
+//$row2=mysqli_fetch_array($result2);
  while($row = mysqli_fetch_array($result)) 
   { 
+  
+  $nom_profe= $row['nombre_profesor'];
+  $curso= $row['nombre_curso'];
+  $id_c= $row ['id_curso'];
+
+
+
+echo " <tr><td>$i</td><td>$id_c</td> <td>$curso</td> <td>$nom_profe</td>
+<td><a href='tabla_contenido_alumno.php?dato=$id_c'>Ver Curso</a></td></tr>";
+
 $i=$i+1;
-  $id_c=$row["id_curso"];
-  $nom_curso= $row["nombre_curso"];
- $profesor= $row["nombre_profe"];
 
-echo " <tr><td>$i</td><td>$nom_curso</td> <td>$profesor</td>";
- echo"<td><a href='elimina_curso.php?dato=$id_c' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
+   }
 
-
-
-
-
-
-
-
-  }
-
-
-
+  $_SESSION["id_curse"] = $id_c;
 
  
 
 echo "</table>"
 
 
-
-
-
-
-
-
-
-
-
-
-
 ?>
+<center>
+<a href="alumno.php" class="btn btn-dark" role="button" aria-pressed="true">Regresar</a>
+</center>
+</div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br><br>
 
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-    <!-- Footer -->
-   <footer class="text-center">
+<footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">

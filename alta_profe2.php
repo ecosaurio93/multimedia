@@ -65,7 +65,7 @@ if(strcmp($pa, $pa2) !== 0){
 
     mysqli_query($link,$query);
 
-header("Location:index_profe.php");  
+header("Location:login.php");  
 //  
   
     echo '<br />';   

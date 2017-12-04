@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -36,7 +36,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
         <a class="navbar-brand js-scroll-trigger" href="#page-top">ADMINISTRADOR</a>
@@ -51,28 +51,33 @@
             <a class="nav-link js-scroll-trigger" href="admin.php">Inicio</a>
           </li>
 
-              <li class="dropdown ">
-           <a   class="dropdown-toggle nav-link js-scroll-trigger"  data-toggle="dropdown" href="#">Administración<span class="caret"></span>
-           </a>
+ <li class="nav-item dropdown">
+           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Administracion<span class="caret"></a span>
          
           <ul class="dropdown-menu ">
-            <li><a class="nav-link js-scroll-trigger" href="curso.php">Cursos</a></li>
-           
+                 <a class="dropdown-item" href="curso.php">Curso</a>
+                  <div class="dropdown-divider"></div>
            </ul>
         </li>  
 
-             <li class="dropdown ">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></span>
-           </a>&nbsp
-          <ul class="dropdown-menu ">
-         
-            <li><a class="nav-link js-scroll-trigger" href="ad.php">Admin</a></li>
-            <li><a class="nav-link js-scroll-trigger" href="alum.php">Alumnos</a></li>
-             <li><a class="nav-link js-scroll-trigger" href="profe.php">Profesores</a></li>
+
+             
+              <li class="nav-item dropdown">
+           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></a span>
+          <ul class="dropdown-menu">
+         <a class="dropdown-item" href="foro.php">Foro</a>
+                  <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="alum.php">Alumnos</a>
+                  <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="profe.php">Profesores</a>
+                  <div class="dropdown-divider"></div>
+
+      
            </ul>
         </li>  
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Salir</a>
+            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
             
           </ul>
@@ -91,6 +96,16 @@
 <br></br>
 <br></br>
 <br></br>
+
+<?php session_start(); 
+if(!isset($_SESSION['user'])) header("Location:index.html");
+
+
+$usuario=$_SESSION['user'];
+//$id=$_SESSION['id_admin'];
+$nombre=$_SESSION['name'];
+
+?>
 
  <div class="container">
       <div class="page-header">

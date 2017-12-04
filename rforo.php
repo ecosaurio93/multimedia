@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
     <style>
@@ -7,26 +7,29 @@
         height: 200px;
         width: 200px;
        }
-    </style>
-
+    </style>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+
+  
 
     <title>Plataforma de educación</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
@@ -39,160 +42,113 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
          <a class=" js-scroll-trigger" href="#page-top"><img src="img/MULE.png" alt="" >
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ADMINISTRADOR</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">FORO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
+          Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html">Inicio</a>
+            </li>
+           
+           
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registro</a>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="logout.php">Registro de Alumno</a>
+          <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="alta_profe.php">Registro de Profesor</a>
+          </div>
+     </li>      
 
-               <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="admin.php">Inicio</a>
-          </li>
 
- <li class="nav-item dropdown">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Administracion<span class="caret"></a span>
-         
-          <ul class="dropdown-menu ">
-                 <a class="dropdown-item" href="curso.php">Curso</a>
-                  <div class="dropdown-divider"></div>
-           </ul>
-        </li>  
-
-
-             
-              <li class="nav-item dropdown">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></a span>
-          <ul class="dropdown-menu">
-         <a class="dropdown-item" href="foro.php">Foro</a>
-                  <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="alum.php">Alumnos</a>
-                  <div class="dropdown-divider"></div>
-
-        <a class="dropdown-item" href="profe.php">Profesores</a>
-                  <div class="dropdown-divider"></div>
-
-      
-           </ul>
-        </li>  
-           <li class="nav-item">
+            <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
-            
           </ul>
-             
         </div>
       </div>
     </nav>
-
-<br></br>
-</br>
-
-
-               
-<br></br>
+<!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento -->
 <br></br>
 
-   <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-             
-              <li><h4>Lista de Cursos<h4></li>
-          </ul>
-          </div>
-        </div>
-      </div>
+<div>
 
+  
+<body>
+<br><br><br><br>
 
-<?php 
-
-
+<?php
+include('function.php');
+session_start();
+$usuario=$_SESSION['name'];
+$numero= $_GET['numero'];
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"plataforma"); 
 
-
-//echo "$busca";
-
-
-$i=1;
-
-
-//$row2=mysqli_fetch_array($result2);
-
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo '<table class="table table-hover table-dark">
-   <thead>
-    <tr>
-    <td scope="col">#</td>
-      <td scope="col">Nombre del Curso</td>
-      <td scope="col">Profesor</td>
-       <td scope="col">eliminar</td>
-
-    </tr>
-     </thead>'; 
-
-
-
-  $result=mysqli_query($link,"select  * from curso_profe");
+$result=mysqli_query($link,"select  * from foro where numero='$numero'");
   $row = mysqli_fetch_array($result);
 
-  $id_c=$row["id_curso"];
-  $nom_curso= $row["nombre_curso"];
- $profesor= $row["nombre_profe"];
-
-echo " <tr><td>$i</td><td>$nom_curso</td> <td>$profesor</td>";
- echo"<td><a href='elimina_curso.php?dato=$id_c' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
-
- while($row = mysqli_fetch_array($result)) 
-  { 
-$i=$i+1;
-  $id_c=$row["id_curso"];
-  $nom_curso= $row["nombre_curso"];
- $profesor= $row["nombre_profe"];
-
-echo " <tr><td>$i</td><td>$nom_curso</td> <td>$profesor</td>";
- echo"<td><a href='elimina_curso.php?dato=$id_c' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
+  $tema=$row['comentario'];
+   $desc=$row['descripcion'];
+    $fecha=$row['fecha'];
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 
 
+ echo'<center><div class="col-md-10">';
+echo "<br>
+ <h5>Publicado: ".$fecha."</h5><br><br><br>
+  <h3>TEMA: ".$tema."</h3><br>
+
+ <h6><br> ".$desc."</h6> <br><HR NOSHADE>";
 
 
+$sqlFind= getSQLResult("SELECT * FROM rforo where numero=$numero;");
 
 
 
 
+
+if(mysqli_num_rows($sqlFind)>0){ //encontro al menos un usuario
+    for($i = 1; $i <= mysqli_num_rows($sqlFind); $i++){
+      $rows = mysqli_fetch_array($sqlFind);//los separa
+      echo "<div ALIGN=LEFT><br>"; 
+     
+        echo "<h5>&nbsp;&nbsp; USUARIO: ".$rows['usuario']."</h5>"."";
+          echo "&nbsp;&nbsp;&nbsp; PUBLICADO:".$rows['fecha']."<br><br><br>";
+        echo "&nbsp;&nbsp;&nbsp;       ".$rows['comentario']."<br>";
+
+      echo "<HR NOSHADE></div>";
+    }
   }
 
 
-
-
- 
-
-echo "</table>"
-
-
-
-
-
-
-
-
-
-
-
+echo "<div>
+  <form action='hilo2.php?numero=".$numero."' method='post'>";
 
 
 ?>
 
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+      <div ALIGN=LEFT>
+          <h4>Responder: </h4>
+          <input type="text" size="80" name="comentario" required/><br>
+      </div>
+    <div class="button" ALIGN=LEFT>
+    	<br>
+          <button type="submit" >Responder</button>
+      </div>
+  </form>
+  
+ </div>
+</body>
+<!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento --><!-- Cuerpo del documento -->
+</div>
+</div>
 <br></br>
     <!-- Footer -->
    <footer class="text-center">

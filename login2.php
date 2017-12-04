@@ -69,7 +69,31 @@ usuario='$usuario' or correo='$usuario'");
 
 
 
+$result = mysqli_query($link,"select  * from admin where 
+usuario='$usuario' or correo='$usuario'");
 
+   if($row=mysqli_fetch_array($result)){
+
+
+
+       if($row["pass"] == $password)
+           {
+            $_SESSION["user"] = $row['usuario'];
+            $_SESSION["id"] = $row['id_admin'];             
+            $_SESSION["name"] = $row['nombre']; 
+            header("Location:admin.php"); 
+             // Para redireccionar automaticamente a una pagina: usar cualqueira de las dos opciones:  
+            //echo '<SCRIPT LANGUAGE="javascript">  location.href = "index.php";    </SCRIPT>';
+            //header("Location: index.php");
+            
+
+     }
+        else {
+  header("Location:error_login.html"); 
+             } 
+
+
+   }
 
 
 

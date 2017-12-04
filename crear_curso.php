@@ -54,14 +54,14 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
             <a class="nav-link js-scroll-trigger" href="index_profe.php">Inicio</a>
           </li>
              <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="#">Cursos</a>
+             <a class="nav-link js-scroll-trigger" href="cursos_profe.php">Cursos</a>
               </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
               <ul class="dropdown-menu">
               <a class="dropdown-item" href="#">Revisar Tarea</a>
                   <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="#">Crear Curso </a>
+               <a class="dropdown-item" href="crear_curso.php">Crear Curso </a>
                   <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Blog </a>
                   <div class="dropdown-divider"></div>

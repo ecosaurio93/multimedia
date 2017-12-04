@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -65,13 +65,12 @@ if(!isset($_SESSION['user'])) header("Location:index.html");
               <ul class="dropdown-menu">
                    		   <a class="dropdown-item" href="#">Entregar Tarea</a>
       						<div class="dropdown-divider"></div>
-							 <a class="dropdown-item" href="#">Lecturas </a>
+							 <a class="dropdown-item" href="calificaciones_alumno.php">Calificaciones </a>
       						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Multimedia </a>
-      						<div class="dropdown-divider"></div>
+				
 							<a class="dropdown-item" href="#">Blog </a>
       						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Foro </a>
+							<a class="dropdown-item" href="foro.php">Foro </a>
       						<div class="dropdown-divider"></div>
 						
 					

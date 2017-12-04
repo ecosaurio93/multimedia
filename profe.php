@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Plataforma de educaciÃ³n</title>
+    <title>Plataforma de educación</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,28 +51,33 @@
             <a class="nav-link js-scroll-trigger" href="admin.php">Inicio</a>
           </li>
 
-              <li class="dropdown ">
-           <a   class="dropdown-toggle nav-link js-scroll-trigger"  data-toggle="dropdown" href="#">AdministraciÃ³n<span class="caret"></span>
-           </a>
+ <li class="nav-item dropdown">
+           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Administracion<span class="caret"></a span>
          
           <ul class="dropdown-menu ">
-            <li><a class="nav-link js-scroll-trigger" href="curso.php">Cursos</a></li>
-            
+                 <a class="dropdown-item" href="curso.php">Curso</a>
+                  <div class="dropdown-divider"></div>
            </ul>
         </li>  
 
-             <li class="dropdown ">
-           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></span>
-           </a>&nbsp
-          <ul class="dropdown-menu ">
-         
-            <li><a class="nav-link js-scroll-trigger" href="ad.php">Admin</a></li>
-            <li><a class="nav-link js-scroll-trigger" href="alum.php">Alumnos</a></li>
-             <li><a class="nav-link js-scroll-trigger" href="profe.php">Profesores</a></li>
+
+             
+              <li class="nav-item dropdown">
+           <a  class="dropdown-toggle nav-link  js-scroll-trigger"  data-toggle="dropdown" href="#">Usuarios<span class="caret"></a span>
+          <ul class="dropdown-menu">
+         <a class="dropdown-item" href="foro.php">Foro</a>
+                  <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="alum.php">Alumnos</a>
+                  <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="profe.php">Profesores</a>
+                  <div class="dropdown-divider"></div>
+
+      
            </ul>
         </li>  
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Salir</a>
+            <a class="nav-link js-scroll-trigger" href="logout.php">Salir</a>
           </li>
             
           </ul>
@@ -89,8 +94,8 @@
 <br></br>
 <br></br>
 
+<!--
 
-<!-- Content page -->
     <div class="container">
       <div class="page-header">
         <h1 class="text-right"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Usuarios <small> Profesores</small></h1>
@@ -113,7 +118,7 @@
                       <th class="text-center">Usuario</th>
                       <th class="text-center">Nombre</th>
                       <th class="text-center">Escuela</th>
-                      <th class="text-center">Correo Institucional</th>
+                      <th class="text-center">Correo </th>
                      
                       <th class="text-center">Actualizar</th>
                       <th class="text-center">Borrar</th>
@@ -163,13 +168,13 @@
                   </tbody>
                 </table>
                 <ul class="pagination pagination-sm">
-                    <li class="disabled"><a href="#!">Â«</a></li>
+                    <li class="disabled"><a href="#!">«</a></li>
                     <li class="active"><a href="#!">1</a></li>
                     <li><a href="#!">2</a></li>
                     <li><a href="#!">3</a></li>
                     <li><a href="#!">4</a></li>
                     <li><a href="#!">5</a></li>
-                    <li><a href="#!">Â»</a></li>
+                    <li><a href="#!">»</a></li>
                 </ul>
               </div>
               </div>
@@ -178,6 +183,107 @@
       </div>
     </div>
   </section>
+-->
+
+   <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+             
+              <li><h4>Lista de Profesores<h4></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+
+<?php 
+
+
+$link=mysqli_connect("localhost","root","");
+mysqli_select_db($link,"plataforma"); 
+
+
+//echo "$busca";
+
+
+$i=1;
+
+
+//$row2=mysqli_fetch_array($result2);
+
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo '<table class="table table-hover table-dark">
+   <thead>
+    <tr>
+    <td scope="col">#</td>
+      <td scope="col">Nombre</td>
+      <td scope="col">Correo</td>
+      <td scope="col">Usuario </td>
+      <td scope="col">Escuela</td>
+       <td scope="col">Eliminar</td>
+
+    </tr>
+     </thead>'; 
+
+
+
+  $result=mysqli_query($link,"select  * from profesor");
+  $row = mysqli_fetch_array($result);
+
+  $id_prof=$row["id_profesor"];
+  $nom_profe= $row["nombre"];
+ $user= $row["usuario"];
+  $escuela= $row["escuela"];
+  $correo= $row["correo"];
+  echo " <tr><td>$i</td><td>$nom_profe</td> <td>$correo</td> <td>$user</td><td>$escuela</td>";
+   echo"<td><a href='borra_profe.php?dato=$id_prof' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
+
+ while($row = mysqli_fetch_array($result)) 
+  { 
+$i=$i+1;
+  $id_prof=$row["id_profesor"];
+  $nom_profe= $row["nombre"];
+ $user= $row["usuario"];
+  $escuela= $row["escuela"];
+  $correo= $row["correo"];
+
+
+echo " <tr><td>$i</td><td>$nom_profe</td> <td>$correo</td> <td>$user</td><td>$escuela</td>";
+ echo"<td><a href='borra_profe.php?dato=$id_prof' class='btn btn-danger btn-raised btn-xs'><i class='zmdi zmdi-delete'></i></a></td></tr>";
+
+
+
+
+
+
+
+  }
+
+
+
+
+ 
+
+echo "</table>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
 
 <br></br>
 <br></br>
@@ -190,7 +296,7 @@
         <div class="container">
           <div class="row">
             <div class="footer-col col-md-4">
-              <h3>UbicaciÃ³n</h3>
+              <h3>Ubicación</h3>
              <center>
     <div id="map"></div>
     <script>
@@ -203,8 +309,8 @@
         var marker = new google.maps.Marker({
           position: coordenadas,
           draggeable:true,
-          title: 'Arrastrame', //tÃ­tulo  sobre el marcador
-          animation:google.maps.Animation.BOUNCE,//animaciÃ³n
+          title: 'Arrastrame', //título  sobre el marcador
+          animation:google.maps.Animation.BOUNCE,//animación
           map: map
         });
       }
@@ -277,7 +383,7 @@
     <script src="js/freelancer.min.js"></script>
     <!--Google api-->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtIgeguwfd5ARvs1QDdaVEK5iLmjhkndw&callback=initMap">//direcciÃ³n del mapa antes del &
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtIgeguwfd5ARvs1QDdaVEK5iLmjhkndw&callback=initMap">//dirección del mapa antes del &
     </script>
   </body>
 
